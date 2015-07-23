@@ -1,0 +1,34 @@
+<head>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+</head>
+
+<body>
+
+
+</body>
+
+
+<script type="text/jsx">
+
+// browser: i don't know how to handle text/jsx, i'll just ignore it.
+// it'll be run by the JSXtransformer, transpile it, then hand it off to the browser
+
+//define a class
+var HelloWorld = React.createClass({
+  render: function() {
+    return <div>
+    Hello World!
+    </div>
+  }
+});
+// HelloWorld is cookie cutter
+
+// react, please render this class
+var element = React.createElement(HelloWorld);
+// element = cookie. instantiated element of the cookie class
+
+//react, after render class, place in body tag
+React.render(element, document.body);
+
+</script>
