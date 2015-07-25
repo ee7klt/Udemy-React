@@ -6,8 +6,13 @@
 </head>
 
 <body>
+  <div class = "container">
+<div class="row">
+  <div class = "col-sm-5 target">
 
-
+  </div>
+</div>
+</div>
 </body>
 
 
@@ -28,17 +33,40 @@ var Badge = React.createClass({
 // HelloWorld is cookie cutter
 
 
+
+var Thumbnail = React.createClass ({
+  render: function () {
+    return <div className="thumbnail">
+      <img src={this.props.imageURL}/>
+      <div className="caption">
+        <h3>{this.props.header}</h3>
+        <p>{this.props.description}</p>
+        <p>
+        <Badge title={this.props.title} number={this.props.number}/>
+        </p>
+      </div>
+    </div>
+  }
+})
+
 //2. create options object
 var options = {
-  title: 'Sent',
-  number: 12
+  title: 'Upvote',
+  number: 5,
+  header: 'Learn React',
+  description:' React is fantastic!',
+  imageURL: 'http://moduscreate.com/wp-content/uploads/2014/03/react-opti.png'
 };
 // react, please render this class
 //3. pass options object as second element of createElement
-var element = React.createElement(Badge, options);
+//var element = React.createElement(Badge, options);
 // element = cookie. instantiated element of the cookie class
 
+var thumbnail = React.createElement(Thumbnail,options);
+
 //react, after render class, place in body tag
-React.render(element, document.body);
+//React.render(element, document.querySelector('.target'));
+React.render(thumbnail, document.querySelector('.target'));
+
 
 </script>
