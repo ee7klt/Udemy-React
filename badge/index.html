@@ -1,0 +1,44 @@
+<head>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+</body>
+
+
+<script type="text/jsx">
+
+// browser: i don't know how to handle text/jsx, i'll just ignore it.
+// it'll be run by the JSXtransformer, transpile it, then hand it off to the browser
+
+//define a class
+var Badge = React.createClass({
+  render: function() {
+    //1. replace qualities with reference to this.props elements
+    return <button className="btn btn-primary" type="button">
+  {this.props.title} <span className="badge">{this.props.number}</span>
+</button>
+  }
+});
+// HelloWorld is cookie cutter
+
+
+//2. create options object
+var options = {
+  title: 'Inbox',
+  number: 32
+};
+// react, please render this class
+//3. pass options object as second element of createElement
+var element = React.createElement(Badge, options);
+// element = cookie. instantiated element of the cookie class
+
+//react, after render class, place in body tag
+React.render(element, document.body);
+
+</script>
