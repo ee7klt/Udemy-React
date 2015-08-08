@@ -5,7 +5,7 @@ var ThumbnailList = require('./thumbnail-list');
 var options = {
 thumbnailData: [{
   title: 'Upvote',
-  number: 5,
+  number: 120,
   header: 'Learn React',
   description:' React is fantastic!',
   imageURL: 'http://moduscreate.com/wp-content/uploads/2014/03/react-opti.png'
