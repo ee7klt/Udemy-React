@@ -3,8 +3,8 @@
 // based on when the user clicks on a button
 
 var React = require('react');
-var Badge = require('./button');
-var List = require('./list');
+var Button = require('./button');
+//var List = require('./list');
 
 
 module.exports = React.createClass ({

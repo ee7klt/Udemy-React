@@ -1,9 +1,9 @@
 var React = require('react');
-var ThumbnailList = require('./dropdown');
+var Dropdown = require('./dropdown');
 
 
 var options = {
-  title: 'Choose a dessert' // What should show up on the button to open/close the dropdown
+  title: 'Choose a dessert', // What should show up on the button to open/close the dropdown
   items: [  // List of items to show in the dropdown
     'Raw cocoa gluten-free chocolate cake',
     'Coconut cream cashew flour souffle',
