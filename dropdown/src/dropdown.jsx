@@ -10,6 +10,9 @@ var ListItem = require('./list-item');
 
 module.exports = React.createClass ({
 
+  getInitialState: function() {
+    return {open: false}
+  },
 
 
 
@@ -18,13 +21,13 @@ module.exports = React.createClass ({
       return <ListItem item={item} />
     });
 
-    return <div>
+    return <div className="dropdown">
         <Button
           className="btn-default"
           title={this.props.title}
           subTitleClassName="caret"
           />
-        <ul className = "dropdown-menu">{list}</ul>
+        <ul className = {"dropdown-menu " + (this.state.open ? "show" : "")}>{list}</ul>
 
     </div>
   }
