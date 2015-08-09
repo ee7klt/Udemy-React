@@ -4,7 +4,7 @@
 
 var React = require('react');
 var Button = require('./button');
-var ListItem = require('./listitem');
+var ListItem = require('./list-item');
 //var List = require('./list');
 
 
@@ -18,17 +18,13 @@ module.exports = React.createClass ({
       return <ListItem item={item} />
     });
 
-    return <div className = "dropdown">
+    return <div>
         <Button
-          className="btn-default dropdown-toggle"
-          type="button" id="dropdownMenu1"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="true"
+          className="btn-default"
           title={this.props.title}
           subTitleClassName="caret"
           />
-        <ul className = "dropdown-menu" aria-labelledby="dropdownMenu1">{list}</ul>
+        <ul className = "dropdown-menu">{list}</ul>
 
     </div>
   }
