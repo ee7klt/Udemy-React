@@ -19,10 +19,14 @@ module.exports = React.createClass ({
     return {open: false}
   },
 
+  handleItemClick: function() {
+
+  },
+
   render: function() {
     var list = this.props.items.map(function(item) {
-      return <ListItem item={item} />
-    });
+      return <ListItem item={item} whenItemClicked={this.handleItemClick} />
+    }).bind(this);
 
     return <div className="dropdown">
         <Button

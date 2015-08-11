@@ -1,8 +1,10 @@
 var React = require('react');
 
 module.exports = React.createClass({
-
+  handleClick: function() {
+    this.props.whenItemClicked();
+  },
   render: function() {
-    return <li><a>{this.props.item}</a></li>
+    return <li><a onClick = {this.handleClick}>{this.props.item}</a></li>
   }
 })
