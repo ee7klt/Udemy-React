@@ -9,7 +9,12 @@ var options = {
     'Coconut cream cashew flour souffle',
     'Cendol'
   ]
+  //,
+  //whenItemClicked: function() {console.log("hi from app");}
 };
+
+
+
 
 var element = React.createElement(Dropdown, options);
 React.render(element, document.querySelector('.container'));

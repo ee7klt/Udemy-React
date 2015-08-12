@@ -10,29 +10,36 @@ var ListItem = require('./list-item');
 
 module.exports = React.createClass ({
 
-  handleClick: function() {
+  handleButtonClick: function() {
     //this.state.open ^= true;
     this.setState({open: !this.state.open});
   },
 
   getInitialState: function() {
-    return {open: false}
+    return {
+      open: false,
+      itemTitle: this.props.title
+    }
   },
 
-  handleItemClick: function() {
-
+  handleItemClick: function(item) {
+    console.log(item);
+    this.setState({
+      open: false,
+      itemTitle: item
+    });
   },
 
   render: function() {
     var list = this.props.items.map(function(item) {
       return <ListItem item={item} whenItemClicked={this.handleItemClick} />
-    }).bind(this);
+    }.bind(this));
 
     return <div className="dropdown">
         <Button
-          whenClicked = {this.handleClick}
+          whenClicked = {this.handleButtonClick}
           className="btn-default"
-          title={this.props.title}
+          title = {this.state.itemTitle}
           subTitleClassName="caret"
           />
         <ul className = {"dropdown-menu " + (this.state.open ? "show" : "")}>{list}</ul>
