@@ -32,7 +32,10 @@ module.exports = React.createClass ({
 
   render: function() {
     var list = this.props.items.map(function(item) {
-      return <ListItem item={item} whenItemClicked={this.handleItemClick} />
+      return <ListItem
+              item={item}
+              whenItemClicked={this.handleItemClick}
+              itemClass={(this.state.itemTitle === item) ? "active":""}/>
     }.bind(this));
 
     return <div className="dropdown">
