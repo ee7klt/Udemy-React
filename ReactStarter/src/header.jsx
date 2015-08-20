@@ -7,16 +7,15 @@ module.exports = React.createClass({
     return {text: ''};
   },
   handleChange: function(event) {
-    console.log(event.target.value)
+    //console.log(event.target.value)
     this.setState({text: event.target.value})
   },
   handleButtonClick: function() {
-    console.log(this.state.text)
+    //console.log(this.state.text)
     this.props.itemsStore.push({
-      text: this.state.text
+      text: this.state.text,
       done: false
     });
-
     this.setState({text:''});
   },
 
