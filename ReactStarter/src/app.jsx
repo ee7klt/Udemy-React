@@ -3,6 +3,7 @@ var ReactFire = require('reactfire');
 var Firebase = require('firebase');
 var rootUrl = 'https://radiant-fire-5046.firebaseio.com/'
 var Header = require('./header');
+var List = require('./list');
 
 
 
@@ -19,6 +20,7 @@ var App = React.createClass({
           To-Do List
         </h2>
         <Header itemsStore={this.firebaseRefs.items}/>
+        <List itemsStore={this.firebaseRefs.items}/>
       </div>
     </div>
   }
