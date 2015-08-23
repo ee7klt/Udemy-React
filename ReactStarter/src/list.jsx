@@ -12,7 +12,7 @@ module.exports = React.createClass({
       for (var key in this.props.items) {
         console.log(key);
         console.log(this.props.items[key].text);
-        children.push(
+        children.unshift(
           <li>
             {this.props.items[key].text}
           </li>
