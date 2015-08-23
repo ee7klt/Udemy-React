@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactFire = require('reactfire');
 var Firebase = require('firebase');
-var rootUrl = 'https://radiant-fire-5046.firebaseio.com/'
+var rootUrl = 'https://todo123456.firebaseio.com/'
 var Header = require('./header');
 var List = require('./list');
 
@@ -15,7 +15,7 @@ var App = React.createClass({
     }
   },
   componentWillMount: function() {
-    this.bindAsObject(new Firebase(rootUrl + 'items/'), 'items');
+    this.bindAsArray(new Firebase(rootUrl + 'items/'), 'items');
   },
   render: function() {
     //console.log(this.state);

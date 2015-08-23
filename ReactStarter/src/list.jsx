@@ -8,18 +8,23 @@ module.exports = React.createClass({
       </h4>
     } else {
       var children = [];
+      console.log(this.props.items);
       for (var key in this.props.items) {
+        console.log(key);
+        console.log(this.props.items[key].text);
         children.push(
           <li>
             {this.props.items[key].text}
           </li>
         )
+        //console.log(children);
       }
+      //console.log(children);
       return children;
     }
   },
   render: function() {
-    console.log(this.props);
+    //console.log(this.props);
       return <ul>
       {this.renderList()}
       </ul>
