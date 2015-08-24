@@ -11,11 +11,17 @@ var App = React.createClass({
   mixins: [ ReactFire ],
   getInitialState: function() {
     return {
-      items: {}
+      items: [],
+      loaded: false
     }
   },
   componentWillMount: function() {
-    this.bindAsArray(new Firebase(rootUrl + 'items/'), 'items');
+    fb = new Firebase(rootUrl + 'items/');
+    this.bindAsArray(fb, 'items');
+    fb.on('value', this.handleDataLoaded);
+  },
+  handleDataLoaded: function() {
+    this.setState({loaded: true})
   },
   render: function() {
     //console.log(this.state);
@@ -25,7 +31,7 @@ var App = React.createClass({
           To-Do List
         </h2>
         <Header itemsStore={this.firebaseRefs.items}/>
-        <List items = {this.state.items}/>
+        <List items = {this.state.items} loaded = {this.state.loaded}/>
       </div>
     </div>
   }
