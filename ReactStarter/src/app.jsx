@@ -31,7 +31,9 @@ var App = React.createClass({
           To-Do List
         </h2>
         <Header itemsStore={this.firebaseRefs.items}/>
-        <List items = {this.state.items} loaded = {this.state.loaded}/>
+        <div className={"content" + (this.state.loaded ? "loaded":"")} >
+        <List items = {this.state.items}/>
+        </div>
       </div>
     </div>
   }

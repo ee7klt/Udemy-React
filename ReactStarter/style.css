@@ -1,2 +1,11 @@
 .black {
   color: black; }
+
+  .content {
+    opacity: 0;    //invisible
+    transition: opacity 1s ease-in;
+  }
+
+  .loaded {
+    opacity: 1;    //visible
+  }
