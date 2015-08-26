@@ -1,4 +1,5 @@
 var React = require('react');
+var ListItem = require('./list-item');
 
 module.exports = React.createClass({
   renderList: function() {
@@ -8,14 +9,13 @@ module.exports = React.createClass({
       </h4>
     } else {
       var children = [];
-      console.log(this.props.items);
+      //console.log(this.props.items);
       for (var key in this.props.items) {
         //console.log(key);
         //console.log(this.props.items[key].text);
         children.unshift(
-          <li>
-            {this.props.items[key].text}
-          </li>
+          <ListItem itemText = {this.props.items[key].text}/>
+
         )
         //console.log(children);
       }

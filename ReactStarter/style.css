@@ -3,7 +3,7 @@
 
   .content {
     opacity: 0;     /*invisible*/
-    transition: opacity 1s ease-in;
+    transition: opacity 200ms ease-in;
   }
 
   .loaded {
