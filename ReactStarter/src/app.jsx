@@ -35,7 +35,7 @@ var App = React.createClass({
           <List items = {this.state.items}/>
         </div>
         <div className = "block1">
-          
+
         </div>
       </div>
     </div>

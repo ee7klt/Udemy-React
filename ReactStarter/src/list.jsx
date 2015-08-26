@@ -13,11 +13,13 @@ module.exports = React.createClass({
       for (var key in this.props.items) {
         console.log(this.props.items);
         console.log(this.props.items[key]['.key']);
+
+        var item = this.props.items[key];
         //console.log(this.props.items[key].text);
         children.unshift(
           <ListItem
-            item = {this.props.items[key]}
-            key = {this.props.items[key]['.key']}
+            item = {item}
+            key = {item['.key']}
           />
 
         )
