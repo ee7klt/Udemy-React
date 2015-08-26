@@ -10,8 +10,8 @@ module.exports = React.createClass({
       var children = [];
       console.log(this.props.items);
       for (var key in this.props.items) {
-        console.log(key);
-        console.log(this.props.items[key].text);
+        //console.log(key);
+        //console.log(this.props.items[key].text);
         children.unshift(
           <li>
             {this.props.items[key].text}

@@ -2,10 +2,22 @@
   color: black; }
 
   .content {
-    opacity: 0;    //invisible
+    opacity: 0;     /*invisible*/
     transition: opacity 1s ease-in;
   }
 
   .loaded {
-    opacity: 1;    //visible
+    opacity: 1;    /*visible*/
+  }
+
+  .block1 {
+    background-color: red;
+    width: 100px;
+    height: 100px;
+    transition: opacity 1000ms ease-in;
+    opacity: 0;
+  }
+
+  .block1:hover {
+    opacity: 1;
   }
