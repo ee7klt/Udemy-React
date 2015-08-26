@@ -5,7 +5,8 @@ module.exports = React.createClass({
 
   render: function() {
     return <li>
-      {this.props.itemText}
+      {this.props.item.text}
+      {this.props.key}
     </li>
   }
 })
