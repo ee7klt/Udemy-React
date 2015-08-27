@@ -15,8 +15,9 @@ module.exports = React.createClass({
     console.log(this.props.item)
     return <div className = "input-group">
         <span className = "input-group-addon">
-          <input type="checkbox" ></input>
-          <input type="text" className = "form-control" value={this.state.text}></input>
+          <input type="checkbox" />
+          </span>
+          <input type="text" className = "form-control" value={this.state.text} />
           <span className = "input-group-btn">
             <button
               className="btn btn-default"
@@ -24,8 +25,8 @@ module.exports = React.createClass({
               >
               Delete
             </button>
-          </span>
         </span>
     </div>
+
   }
 })
