@@ -35,9 +35,7 @@ var App = React.createClass({
         <div className={"content " + (this.state.loaded ? "loaded":"")} >
           <List items = {this.state.items}/>
         </div>
-        <div className = "block1">
 
-        </div>
       </div>
     </div>
   }

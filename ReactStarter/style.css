@@ -3,7 +3,7 @@
 
   .content {
     opacity: 0;     /*invisible*/
-    transition: opacity 200ms ease-in;
+    transition: opacity 500ms ease-in;
   }
 
   .loaded {
@@ -12,16 +12,4 @@
 
   .input-group {
     margin-bottom: 15px;
-  }
-
-  .block1 {
-    background-color: red;
-    width: 100px;
-    height: 100px;
-    transition: opacity 1000ms ease-in;
-    opacity: 0;
-  }
-
-  .block1:hover {
-    opacity: 1;
   }

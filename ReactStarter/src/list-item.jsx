@@ -3,19 +3,30 @@ var React = require('react');
 
 module.exports = React.createClass({
   getInitialState: function() {
-    return {text: this.props.item.text}
+    return {
+      text: this.props.item.text,
+      done: false
+    }
   },
   handleButtonClick: function() {
     this.setState(
       {text:''}
     )
   },
+  handleDoneChange: function() {
+    this.setState({done: !this.state.done})
+  },
 
   render: function() {
     console.log(this.props.item)
     return <div className = "input-group">
         <span className = "input-group-addon">
-          <input type="checkbox" />
+          <input
+            type="checkbox"
+            checked = "this.state.done"
+            onChange = {this.handleDoneChange}
+
+            />
           </span>
           <input type="text" className = "form-control" value={this.state.text} />
           <span className = "input-group-btn">
