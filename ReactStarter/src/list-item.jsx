@@ -18,21 +18,24 @@ module.exports = React.createClass({
     }
   },
   handleButtonClick: function() {
-    this.setState(
-      {text:''}
-    )
+    var update = {text:''}
+    this.setState(update);
+    fb.update(update)
   },
   handleDoneChange: function(event) {
-    this.setState({done: event.target.checked});
-    fb.update(
-      {done: event.target.checked}
-    );
+    var update = {done: event.target.checked}
+    this.setState(update);
+    fb.update(update);
+  },
+
+  handleInputChange: function(event) {
+    var update = {text: event.target.value}
+    this.setState(update)
+    fb.update(update)
   },
 
   render: function() {
-    //console.log(this.props.item)
-  //  console.log(this.state.item);
-    //console.log(this.props.item['.key']);
+
     return <div className = "input-group">
         <span className = "input-group-addon">
           <input
@@ -42,7 +45,12 @@ module.exports = React.createClass({
 
             />
           </span>
-          <input type="text" className = "form-control" value={this.state.text} />
+          <input
+            type="text"
+            className = "form-control"
+            value={this.state.text}
+            onChange = {this.handleInputChange}
+            />
           <span className = "input-group-btn">
             <button
               className="btn btn-default"
