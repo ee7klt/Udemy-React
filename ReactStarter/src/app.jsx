@@ -20,13 +20,14 @@ var App = React.createClass({
     this.bindAsArray(fb, 'items');
     fb.on('value', this.handleDataLoaded);
 
+
   },
   handleDataLoaded: function() {
     this.setState({loaded: true})
   },
   render: function() {
     //console.log(this.state);
-    
+   
     return <div className="row panel panel-default">
       <div className="col-md-8 col-md-offset-2">
         <h2 className="text-center">

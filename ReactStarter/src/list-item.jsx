@@ -8,7 +8,7 @@ module.exports = React.createClass({
   mixins: [ReactFire],
   componentWillMount: function() {
     fb = new Firebase(rootUrl + 'items/' + this.props.item['.key']);
-    this.bindAsArray(fb, 'item');
+    //this.bindAsArray(fb, 'item');
 
   },
   getInitialState: function() {
@@ -23,12 +23,16 @@ module.exports = React.createClass({
     )
   },
   handleDoneChange: function(event) {
-    this.setState({done: event.target.checked})
+    this.setState({done: event.target.checked});
+    fb.set(
+      {done: event.target.checked}
+    );
   },
 
   render: function() {
     //console.log(this.props.item)
-    console.log(this.props.item['.key']);
+  //  console.log(this.state.item);
+    //console.log(this.props.item['.key']);
     return <div className = "input-group">
         <span className = "input-group-addon">
           <input

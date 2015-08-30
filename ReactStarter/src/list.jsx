@@ -15,8 +15,7 @@ module.exports = React.createClass({
         //console.log(this.props.items[key]['.key']);
 
         var item = this.props.items[key];
-        //console.log(item['.key']);
-        //console.log(this.props.items[key].text);
+      //  console.log(item['.key']);
         children.unshift(
           <ListItem
             item = {item}
