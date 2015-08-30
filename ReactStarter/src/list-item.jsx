@@ -24,7 +24,7 @@ module.exports = React.createClass({
   },
   handleDoneChange: function(event) {
     this.setState({done: event.target.checked});
-    fb.set(
+    fb.update(
       {done: event.target.checked}
     );
   },
