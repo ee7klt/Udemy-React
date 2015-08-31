@@ -28,9 +28,9 @@ module.exports = React.createClass({
   },
 
   handleInputChange: function(event) {
-    var update = {text: event.target.value}
+    var update = {text: event.target.value, textChanged: true}
     this.setState(update)
-    textChanged: true
+
 
   },
   changesButtons: function() {
