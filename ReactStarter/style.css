@@ -1,15 +1,6 @@
-.black {
-  color: black; }
+.content {
+  opacity: 0;
+  transition: opacity 1s ease-in; }
 
-  .content {
-    opacity: 0;     /*invisible*/
-    transition: opacity 500ms ease-in;
-  }
-
-  .loaded {
-    opacity: 1;    /*visible*/
-  }
-
-  .input-group {
-    margin-bottom: 15px;
-  }
+.loaded {
+  opacity: 1; }

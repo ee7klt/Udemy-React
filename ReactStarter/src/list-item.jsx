@@ -14,13 +14,12 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       text: this.props.item.text,
-      done: this.props.item.done
+      done: this.props.item.done,
+      textChanged: false
     }
   },
-  handleButtonClick: function() {
-    var update = {text:''}
-    this.setState(update);
-    fb.update(update)
+  handleDeleteClick: function() {
+    fb.remove();
   },
   handleDoneChange: function(event) {
     var update = {done: event.target.checked}
@@ -31,7 +30,16 @@ module.exports = React.createClass({
   handleInputChange: function(event) {
     var update = {text: event.target.value}
     this.setState(update)
-    fb.update(update)
+    textChanged: true
+
+  },
+  changesButtons: function() {
+    if (this.state.textChanged) {
+    return <span>
+      <button className = "btn btn-default"> Save </button>
+      <button className = "btn btn-default"> Undo </button>
+      </span>
+  } else return null
   },
 
   render: function() {
@@ -52,9 +60,10 @@ module.exports = React.createClass({
             onChange = {this.handleInputChange}
             />
           <span className = "input-group-btn">
+            {this.changesButtons()}
             <button
               className="btn btn-default"
-              onClick = {this.handleButtonClick}
+              onClick = {this.handleDeleteClick}
               >
               Delete
             </button>
