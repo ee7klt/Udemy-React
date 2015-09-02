@@ -52,7 +52,7 @@ module.exports = React.createClass({
   },
 
   render: function() {
-  //console.log(this.state.thisItem);
+  //console.log(this.state.done);
     return <div className = "input-group">
         <span className = "input-group-addon">
           <input
@@ -65,8 +65,10 @@ module.exports = React.createClass({
           <input
             type="text"
             className = "form-control"
+            disabled = {this.state.done}
             value={this.state.text}
             onChange = {this.handleInputChange}
+
             />
           <span className = "input-group-btn">
             {this.changesButtons()}

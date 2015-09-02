@@ -26,6 +26,7 @@ module.exports = React.createClass({
         onChange = {this.handleChange}
         type="text"
         className = "form-control"
+        placeholder = "getting things done!"
       />
       <span className="input-group-btn">
         <button
