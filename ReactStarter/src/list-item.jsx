@@ -64,7 +64,7 @@ module.exports = React.createClass({
           </span>
           <input
             type="text"
-            className = "form-control"
+            className = "form-control  style-4"
             disabled = {this.state.done}
             value={this.state.text}
             onChange = {this.handleInputChange}
@@ -79,7 +79,10 @@ module.exports = React.createClass({
               Delete
             </button>
         </span>
+      
     </div>
+
+
 
   }
 })

@@ -25,8 +25,32 @@ var App = React.createClass({
   handleDataLoaded: function() {
     this.setState({loaded: true})
   },
+  deleteButton() {
+    if (!this.state.loaded) {
+      return
+    } else {
+      return <div className="text-center clear-complete">
+        <hr />
+        <button
+          type="button"
+          onClick={this.onDeleteDoneClick}
+          className="btn btn-default">
+          Clear Complete
+        </button>
+      </div>
+    }
+  },
+    onDeleteDoneClick: function() {
+      for (var key in this.state.items) {
+        var item = this.state.items[key];
+        //console.log(item);
+        if (item.done) {
+         console.log(this.firebaseRefs.items)
+        }
+      }
+    },
   render: function() {
-    console.log(this.state.items);
+    //console.log(this.state.items);
 
     return <div className="row panel panel-default">
       <div className="col-md-8 col-md-offset-2">
@@ -37,6 +61,7 @@ var App = React.createClass({
         <hr />
         <div className={"content " + (this.state.loaded ? "loaded":"")} >
           <List items = {this.state.items}/>
+          {this.deleteButton()}
         </div>
 
       </div>
