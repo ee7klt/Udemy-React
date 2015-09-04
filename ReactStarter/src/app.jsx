@@ -41,13 +41,15 @@ var App = React.createClass({
     }
   },
     onDeleteDoneClick: function() {
-      for (var key in this.state.items) {
-        var item = this.state.items[key];
+        //for (var key in this.state.items) {
+        //var item = this.state.items[key];
         //console.log(item);
-        if (item.done) {
-         console.log(this.firebaseRefs.items)
-        }
-      }
+
+        this.state.items.forEach(function(item){
+          if (item.done) {
+            console.log(item)
+          }
+        });
     },
   render: function() {
     //console.log(this.state.items);
