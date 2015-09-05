@@ -47,7 +47,8 @@ var App = React.createClass({
 
         this.state.items.forEach(function(item){
           if (item.done) {
-            console.log(item)
+
+             console.log(this.fb.child(item['.key']).text);
           }
         });
     },
