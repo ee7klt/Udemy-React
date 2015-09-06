@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactFire = require('reactfire');
 var Firebase = require('firebase');
-var rootUrl = 'https://todo123456.firebaseio.com/'
+var rootUrl = 'https://todoee7klt.firebaseio.com/'
 var Header = require('./header');
 var List = require('./list');
 
@@ -41,17 +41,15 @@ var App = React.createClass({
     }
   },
     onDeleteDoneClick: function() {
-        //for (var key in this.state.items) {
-        //var item = this.state.items[key];
-        //console.log(item);
-
         this.state.items.forEach(function(item){
           if (item.done) {
-
+            console.log(item['.key'])
+            console.log(this.fb.child(item['.key']))
              console.log(this.fb.child(item['.key']).text);
+             this.fb.child(item['.key']).remove();
           }
         });
-    },
+      },
   render: function() {
     //console.log(this.state.items);
 
