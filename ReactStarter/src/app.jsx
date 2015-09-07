@@ -1,7 +1,7 @@
 var React = require('react');
 var ReactFire = require('reactfire');
 var Firebase = require('firebase');
-var rootUrl = 'https://todoee7klt.firebaseio.com/'
+var rootUrl = 'https://todothetrystero.firebaseio.com/'
 var Header = require('./header');
 var List = require('./list');
 

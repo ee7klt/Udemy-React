@@ -1,5 +1,5 @@
 var React = require('react');
-var rootUrl = 'https://todoee7klt.firebaseio.com/';
+var rootUrl = 'https://todothetrystero.firebaseio.com/';
 var ReactFire = require('reactfire');
 var Firebase = require('firebase');
 
