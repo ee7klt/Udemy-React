@@ -23,7 +23,7 @@ module.exports = React.createClass({
           />
 
         )
-        //console.log(children);
+        console.log(children);
       }
       //console.log(children);
       return children;

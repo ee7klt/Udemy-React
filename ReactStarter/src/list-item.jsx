@@ -20,7 +20,9 @@ module.exports = React.createClass({
     }
   },
   handleDeleteClick: function() {
-    fb.remove();
+    console.log(this.props.item.text);
+    console.log(this.props.item['.key']);
+    console.log(fb);
   },
   handleDoneChange: function(event) {
     var update = {done: event.target.checked}
