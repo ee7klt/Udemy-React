@@ -7,7 +7,7 @@ var Firebase = require('firebase');
 module.exports = React.createClass({
   mixins: [ReactFire],
   componentWillMount: function() {
-    fb = new Firebase(rootUrl + 'items/' + this.props.item['.key']);
+    this.fb = new Firebase(rootUrl + 'items/' + this.props.item['.key']);
     this.bindAsArray(fb, 'thisItem');
 
   },
@@ -20,14 +20,15 @@ module.exports = React.createClass({
     }
   },
   handleDeleteClick: function() {
-    console.log(this.props.item.text);
-    console.log(this.props.item['.key']);
-    console.log(fb);
+    //console.log(this.props.item.text);
+    //console.log(this.props.item['.key']);
+    //console.log(this.fb);
+    this.fb.remove();
   },
   handleDoneChange: function(event) {
     var update = {done: event.target.checked}
     this.setState(update);
-    fb.update(update);
+    this.fb.update(update);
   },
 
   handleInputChange: function(event) {
@@ -36,7 +37,7 @@ module.exports = React.createClass({
   },
   handleSaveClick: function() {
     var update = {text: this.state.text}
-    fb.update(update)
+    this.fb.update(update)
     this.setState({textChanged: false})
   },
   handleUndoClick: function() {
@@ -73,7 +74,7 @@ module.exports = React.createClass({
 
             />
           <span className = "input-group-btn">
-            {this.changesButtons()}
+            //{this.changesButtons()}
             <button
               className="btn btn-default"
               onClick = {this.handleDeleteClick}
