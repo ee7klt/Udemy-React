@@ -1,0 +1,69 @@
+<head>
+  <script src="https://fb.me/react-0.13.3.js"></script>
+  <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  <script src="https://cdn.firebase.com/js/client/2.2.9/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/reactfire/0.5.0/reactfire.min.js"></script>
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+
+<body>
+
+
+</body>
+
+
+<script type="text/jsx">
+
+// browser: i don't know how to handle text/jsx, i'll just ignore it.
+// it'll be run by the JSXtransformer, transpile it, then hand it off to the browser
+
+//define a class
+var TodoList = React.createClass({
+  render: function() {
+    var createItem = function(itemText, index) {
+      return <li key={index + itemText}>{itemText}</li>;
+    };
+    return <ul>{this.props.items.map(createItem)}</ul>;
+  }
+});
+var TodoApp = React.createClass({
+  mixins: [ReactFireMixin],
+  componentWillMount: function() {
+    this.fb = new Firebase("https://ReactFireTodoApp.firebaseio.com/items");
+    this.bindAsArray(this.fb, 'items');
+  },
+  getInitialState: function() {
+    return {items: [], text: ''};
+  },
+  onChange: function(e) {
+    this.setState({text: e.target.value});
+  },
+  handleSubmit: function(e) {
+    e.preventDefault();
+    this.fb.push({
+      text: this.state.text
+    })
+    this.setState({text: ''});
+
+  },
+  render: function() {
+    return (
+      <div>
+        <h3>TODO</h3>
+        <TodoList items={this.state.items} />
+        <form onSubmit={this.handleSubmit}>
+          <input onChange={this.onChange} value={this.state.text} />
+          <button>{'Add #' + (this.state.items.length + 1)}</button>
+        </form>
+      </div>
+    );
+  }
+});
+
+
+
+React.render(<TodoApp />, document.body);
+
+
+</script>

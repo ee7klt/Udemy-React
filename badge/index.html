@@ -1,6 +1,7 @@
 <head>
   <script src="https://fb.me/react-0.13.3.js"></script>
   <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
+  
   <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 </head>
@@ -17,6 +18,10 @@
 // it'll be run by the JSXtransformer, transpile it, then hand it off to the browser
 
 //define a class
+
+
+
+
 var Badge = React.createClass({
   render: function() {
     //1. replace qualities with reference to this.props elements
@@ -37,6 +42,10 @@ var options = {
 //3. pass options object as second element of createElement
 var element = React.createElement(Badge, options);
 // element = cookie. instantiated element of the cookie class
+
+
+
+
 
 //react, after render class, place in body tag
 React.render(element, document.body);
