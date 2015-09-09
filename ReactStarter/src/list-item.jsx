@@ -5,10 +5,10 @@ var Firebase = require('firebase');
 
 
 module.exports = React.createClass({
-  mixins: [ReactFire],
+  
   componentWillMount: function() {
     this.fb = new Firebase(rootUrl + 'items/' + this.props.item['.key']);
-    this.bindAsArray(fb, 'thisItem');
+    //this.bindAsArray(this.fb, 'thisItem');
 
   },
   getInitialState: function() {
