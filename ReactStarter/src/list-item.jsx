@@ -5,7 +5,7 @@ var Firebase = require('firebase');
 
 
 module.exports = React.createClass({
-  
+
   componentWillMount: function() {
     this.fb = new Firebase(rootUrl + 'items/' + this.props.item['.key']);
     //this.bindAsArray(this.fb, 'thisItem');
@@ -22,7 +22,7 @@ module.exports = React.createClass({
   handleDeleteClick: function() {
     //console.log(this.props.item.text);
     //console.log(this.props.item['.key']);
-    //console.log(this.fb);
+    console.log(this.fb);
     this.fb.remove();
   },
   handleDoneChange: function(event) {

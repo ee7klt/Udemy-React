@@ -45,15 +45,15 @@ var App = React.createClass({
           if (item.done) {
             //console.log(item['.key'])
             console.log(item['.key'])
-             console.log(this.fb);
+             console.log(this.fb.child(item['.key']));
 
-             //this.fb.child(item['.key']).remove();
+             this.fb.child(item['.key']).remove();
           }
-        });
+        }.bind(this));
       },
   render: function() {
     //console.log(this.state.items);
-      console.log(this.fb)
+    //  console.log(this)
 
     return <div className="row panel panel-default">
       <div className="col-md-8 col-md-offset-2">
