@@ -22,7 +22,7 @@
 var TodoList = React.createClass({
   render: function() {
     var createItem = function(itemText, index) {
-      return <li key={index + itemText}>{itemText}</li>;
+      return <li  key={index}>{itemText.text}</li>;
     };
     return <ul>{this.props.items.map(createItem)}</ul>;
   }
@@ -30,7 +30,7 @@ var TodoList = React.createClass({
 var TodoApp = React.createClass({
   mixins: [ReactFireMixin],
   componentWillMount: function() {
-    this.fb = new Firebase("https://ReactFireTodoApp.firebaseio.com/items");
+    this.fb = new Firebase("https://mtodoreact.firebaseio.com/items");
     this.bindAsArray(this.fb, 'items');
   },
   getInitialState: function() {
@@ -48,6 +48,7 @@ var TodoApp = React.createClass({
 
   },
   render: function() {
+    console.log(this.state.items)
     return (
       <div>
         <h3>TODO</h3>
