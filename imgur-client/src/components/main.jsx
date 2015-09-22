@@ -11,6 +11,7 @@ module.exports = React.createClass({
     </div>
   },
 
+
   content: function() {
     if (this.props.children) {
       return this.props.children
