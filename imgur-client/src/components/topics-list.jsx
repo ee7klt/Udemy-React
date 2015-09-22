@@ -11,6 +11,11 @@ module.exports = React.createClass({
 
   },
 
+  componentWillMount: function () {
+    this.getTopics();
+  },
+
+
   getInitialState: function() {
     return {
       topics: ["list item 1", "list item 2"]
