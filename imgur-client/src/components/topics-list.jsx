@@ -6,13 +6,13 @@ module.exports = React.createClass({
   renderTopics: function() {
     var children = [];
 
-    this.state.topics.forEach(function(item) {
-      console.log(item)
+    for (var key in this.state.topics) {
+      var item = this.state.topics[key]
       children.unshift(
         <li>{item}</li>
       )
-    }.bind(this))
-    console.log(children)
+    }
+    return children
   },
 
   getInitialState: function() {
