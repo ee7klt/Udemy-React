@@ -5,17 +5,10 @@ module.exports = React.createClass({
 
   renderTopics: function() {
 
-    var children = [];
-    this.getTopics()
-    this.state.topics.forEach(function(item) {
-    //  console.log(item)
-      children.unshift(
-        <li>{item}</li>
-      )
-    }.bind(this))
+    return this.state.topics.map(function(topic) {
+      return <li> {topic}</li>
+    })
 
-
-    return children
   },
 
   getInitialState: function() {
