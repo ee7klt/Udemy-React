@@ -24,18 +24,11 @@ module.exports = React.createClass({
 
   getTopics: function() {
     return api.get('topics/defaults')
-          .then(function(topicsArr) {
-            //console.log(topicsArr)
-            var fetchedTopics = []
-            topicsArr.data.forEach(function(item) {
-              //console.log(item.name)
-              fetchedTopics.push(item.name)
-              //this.state.topics.push(item.name)
-            }.bind(this))
-            console.log(fetchedTopics)
-            //console.log(this.state)
-            this.setState({topics: fetchedTopics})
-
+          .then(function(topicsObj) {
+            this.setState({
+              //topics: topicsObj.data.name
+            })
+            console.log(topicsObj)
           }.bind(this))
   },
 
