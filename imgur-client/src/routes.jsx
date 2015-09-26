@@ -9,10 +9,12 @@ var Child1 = require('./components/child1');
 
 
 
+
 module.exports = (
   <Router history={new HashHistory}>
     <Route path="/" component={Main}>
       <Route path = "1" component={Child1}></Route>
     </Route>
+
   </Router>
 )
