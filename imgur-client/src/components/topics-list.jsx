@@ -1,6 +1,10 @@
 var React = require('react')
 var TopicStore = require('../stores/topic-store')
 var Reflux = require('reflux')
+var Actions = require('../actions')
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
+var renderCount = 0
 
 module.exports = React.createClass({
   mixins: [
@@ -10,7 +14,12 @@ module.exports = React.createClass({
   renderTopics: function() {
 
     return this.state.topics.map(function(topic) {
-      return <li> {topic}</li>
+      //console.log(topic)
+      console.log(renderCount++)
+      return <Link className="list-group-item" key={topic.id}>
+                <h4>{topic.name}</h4>
+                <p>{topic.description}</p>
+              </Link>
     })
 
   },
@@ -22,7 +31,7 @@ module.exports = React.createClass({
   },
 
   componentWillMount: function () {
-    TopicStore.getTopics();
+    Actions.getTopics();
   },
 
 
