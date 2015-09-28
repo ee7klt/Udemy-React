@@ -14,11 +14,8 @@ module.exports = React.createClass({
   renderTopics: function() {
 
     return this.state.topics.map(function(topic) {
-      //console.log(topic)
-      //console.log(renderCount++)
-      return <Link to={"topics/"+topic.id} className="list-group-item" key={topic.id}>
-                <h4>{topic.name}</h4>
-                <p>{topic.description}</p>
+      return <Link to={"topics/"+topic.id} key={topic.id}>
+                <li>{topic.name}</li>
               </Link>
     })
 
