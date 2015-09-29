@@ -23,7 +23,9 @@ module.exports = React.createClass({
 
   getInitialState: function() {
     return {
-      topics:[]
+      topics:[],
+      open: false,
+      itemTitle: "Topics"
     }
   },
 
@@ -32,19 +34,31 @@ module.exports = React.createClass({
     return this.state.topics.map(function(topic) {
       //console.log(topic)
       //console.log(renderCount++)
-      return <li key = {topic.id}>
+      return <li key = {topic.id} onClick={this.handleItemClick}>
         <Link to={"topics/" + topic.id}>{topic.name}</Link>
       </li>
     })
 
   },
 
+  handleItemClick: function(item) {
+    this.setState({
+    open: false,
+    itemTitle: item
+  });
+  },
+
   renderTopics: function() {
     return this.state.topics.map(function(topic) {
-      return <Link to={"topics/"+topic.id} key={topic.id}>
-                <li>{topic.name}</li>
-              </Link>
+      return <li onClick={this.handleItemClick}><Link to={"topics/"+topic.id} key={topic.id}>
+                {topic.name}
+              </Link></li>
     })
+  },
+
+  handleCaretClick: function (){
+    this.setState({open: !this.state.open})
+    console.log(this.state.open)
   },
 
 
@@ -52,11 +66,21 @@ module.exports = React.createClass({
   render: function() {
     return <nav className = "navbar navbar-default header">
       <div className = "container-fluid">
-        <Link to="/" className="navbar-brand">
-          Imgur Browser
-        </Link>
+
         <ul className = "nav navbar-nav navbar-right">
-            {this.renderTopics()}
+
+         <li className="dropdown">
+           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" onClick={this.handleCaretClick}>
+             Dropdown
+             <span
+               className="caret"
+               >
+             </span>
+          </a>
+           <ul className={"dropdown-menu " + (this.state.open ? "show" : "")}>
+             {this.renderTopics()}
+           </ul>
+         </li>
         </ul>
       </div>
     </nav>
