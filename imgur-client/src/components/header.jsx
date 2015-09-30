@@ -50,7 +50,7 @@ module.exports = React.createClass({
 
   renderTopics: function() {
     return this.state.topics.map(function(topic) {
-      return <li onClick={this.handleItemClick}><Link to={"topics/"+topic.id} key={topic.id}>
+      return <li><Link to={"topics/"+topic.id} key={topic.id}>
                 {topic.name}
               </Link></li>
     })
@@ -66,12 +66,12 @@ module.exports = React.createClass({
   render: function() {
     return <nav className = "navbar navbar-default header">
       <div className = "container-fluid">
-
+        <Link to='/' className="navbar-brand">Imgur Browser</Link>
         <ul className = "nav navbar-nav navbar-right">
 
          <li className="dropdown">
            <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" onClick={this.handleCaretClick}>
-             Dropdown
+             {this.state.itemTitle}
              <span
                className="caret"
                >
