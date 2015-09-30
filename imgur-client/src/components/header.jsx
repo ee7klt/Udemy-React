@@ -49,8 +49,8 @@ module.exports = React.createClass({
   },
 
   renderTopics: function() {
-    return this.state.topics.map(function(topic) {
-      return <li><Link to={"topics/"+topic.id} key={topic.id}>
+    return this.state.topics.slice(0,4).map(function(topic) {
+      return <li><Link activeClassName="active" to={"topics/"+topic.id} key={topic.id}>
                 {topic.name}
               </Link></li>
     })
@@ -68,19 +68,7 @@ module.exports = React.createClass({
       <div className = "container-fluid">
         <Link to='/' className="navbar-brand">Imgur Browser</Link>
         <ul className = "nav navbar-nav navbar-right">
-
-         <li className="dropdown">
-           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" onClick={this.handleCaretClick}>
-             {this.state.itemTitle}
-             <span
-               className="caret"
-               >
-             </span>
-          </a>
-           <ul className={"dropdown-menu " + (this.state.open ? "show" : "")}>
-             {this.renderTopics()}
-           </ul>
-         </li>
+         {this.renderTopics()}
         </ul>
       </div>
     </nav>
