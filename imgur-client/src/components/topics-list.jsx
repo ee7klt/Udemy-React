@@ -13,7 +13,7 @@ module.exports = React.createClass({
 
   renderTopics: function() {
     return this.state.topics.slice(0,4).map(function(topic) {
-      return <Link  to={"topics/"+topic.id} key={topic.id}>
+      return <Link to={"topics/"+topic.id} key={topic.id}>
                 <li>{topic.name}</li>
               </Link>
     })
