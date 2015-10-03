@@ -30,15 +30,11 @@ module.exports = React.createClass({
   },
 
   renderTopics: function() {
-
     return this.state.topics.map(function(topic) {
-      //console.log(topic)
-      //console.log(renderCount++)
       return <li key = {topic.id} onClick={this.handleItemClick}>
         <Link to={"topics/" + topic.id}>{topic.name}</Link>
       </li>
     })
-
   },
 
   handleItemClick: function(item) {
