@@ -2,6 +2,7 @@ var React = require('react');
 var ImageStore = require('../stores/image-store')
 var Reflux = require('reflux')
 var Actions = require('../actions')
+var ImagePreview = require('./image-preview.jsx')
 
 module.exports = React.createClass({
 
@@ -30,9 +31,9 @@ module.exports = React.createClass({
 
   renderImages: function() {
     console.log(this.state.images)
-    return this.state.images.slice(0,4).map(function(image) {
-      console.log(image.id)
-      return <li> <img src={'http://i.imgur.com/'+image.id+'.png'}/></li>
+    return this.state.images.slice(0,10).map(function(image) {
+      //console.log(image.id)
+      return <ImagePreview key={image.id} {...image}/>
     })
   },
   render: function() {
