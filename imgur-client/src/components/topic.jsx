@@ -20,16 +20,24 @@ module.exports = React.createClass({
     })
   },
   componentWillMount: function() {
-    console.log("image-store mounted")
+    console.log("fetching data via ImageStore")
     Actions.getImages(this.props.params.id);
   },
+  componentWillReceiveProps: function(nextProps) {
+      console.log("fetching data via ImageStore")
+    Actions.getImages(nextProps.params.id);
+  },
+
   renderImages: function() {
-  //  console.log(this.state.images)
+    console.log(this.state.images)
     return this.state.images.slice(0,4).map(function(image) {
-      return <li>{image.topic}</li>
+      console.log(image.id)
+      return <li> <img src={'http://i.imgur.com/'+image.id+'.png'}/></li>
     })
   },
   render: function() {
+    console.log('Topic is rendering with ID '+this.props.params.id)
+    console.log('I have this many images: '+this.state.images.length)
     return <div>{this.renderImages()}</div>
     }
   })
