@@ -14,6 +14,7 @@ module.exports = Reflux.createStore ({
           }.bind(this))
   },
   triggerChange: function() {
+    console.log("fetching topics")
     this.trigger('change', this.topics);
   }
 })

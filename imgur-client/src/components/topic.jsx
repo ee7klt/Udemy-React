@@ -9,23 +9,27 @@ module.exports = React.createClass({
   mixins: [
     Reflux.listenTo(ImageStore, 'onChange')
   ],
+  getInitialState: function() {
+    return {
+      images: []
+    }
+  },
   onChange: function(event, images) {
     this.setState({
       images: images
     })
-    console.log(this.state.images)
   },
   componentWillMount: function() {
     console.log("image-store mounted")
-    ImageStore.getImages(this.props.params.id);
+    Actions.getImages(this.props.params.id);
   },
   renderImages: function() {
-    console.log(this.state.images)
+  //  console.log(this.state.images)
     return this.state.images.slice(0,4).map(function(image) {
-      return <li>image.topic</li>
+      return <li>{image.topic}</li>
     })
   },
   render: function() {
-    return <div>hello</div>
+    return <div>{this.renderImages()}</div>
     }
   })
