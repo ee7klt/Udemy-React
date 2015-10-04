@@ -31,9 +31,9 @@ module.exports = React.createClass({
 
   renderTopics: function() {
     return this.state.topics.map(function(topic) {
-      return <li key = {topic.id} onClick={this.handleItemClick}>
-        <Link to={"topics/" + topic.id}>{topic.name}</Link>
-      </li>
+      return <Link to={"topics/" + topic.id} key = {topic.id}><li >
+        {topic.name}
+      </li></Link>
     })
   },
 

@@ -1,6 +1,7 @@
 var React = require('react');
 var ImageStore = require('../stores/image-store')
 var Reflux = require('reflux')
+var Actions = require('../actions')
 
 module.exports = React.createClass({
 
@@ -12,8 +13,10 @@ module.exports = React.createClass({
     this.setState({
       images: images
     })
+    console.log(this.state.images)
   },
   componentWillMount: function() {
+    console.log("image-store mounted")
     ImageStore.getImages(this.props.params.id);
   },
   renderImages: function() {
@@ -23,6 +26,6 @@ module.exports = React.createClass({
     })
   },
   render: function() {
-    return <div><h2>{this.renderImages()}</h2></div>
+    return <div>hello</div>
     }
   })
