@@ -19,9 +19,11 @@ module.exports = React.createClass({
     this.setState({
       images: images
     })
+    console.log(this.state.images)
   },
   componentWillMount: function() {
     console.log("fetching data via ImageStore")
+
     Actions.getImages(this.props.params.id);
   },
   componentWillReceiveProps: function(nextProps) {
