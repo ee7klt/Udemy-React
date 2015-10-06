@@ -3,11 +3,13 @@ var React = require('react')
 
 module.exports = React.createClass({
   render: function() {
-    return <div>{this.image()}</div>
+    return <div className="image-preview">
+      {this.image()}
+    </div>
 
   },
   image: function() {
-    var link = 'http://i.imgur.com/' + this.props.id + 't.jpg'
+    var link = 'http://i.imgur.com/' + this.props.id + 'm.jpg'
     return <img src = {link}/>
   }
 

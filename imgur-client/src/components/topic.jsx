@@ -33,7 +33,7 @@ module.exports = React.createClass({
 
   renderImages: function() {
     console.log(this.state.images)
-    return this.state.images.slice(0,10).map(function(image) {
+    return this.state.images.slice(0,60).map(function(image) {
       //console.log(image.id)
       return <ImagePreview key={image.id} {...image}/>
     })
@@ -41,6 +41,6 @@ module.exports = React.createClass({
   render: function() {
     console.log('Topic is rendering with ID '+this.props.params.id)
     console.log('I have this many images: '+this.state.images.length)
-    return <div>{this.renderImages()}</div>
+    return <div className="topic">{this.renderImages()}</div>
     }
   })
