@@ -12,14 +12,15 @@ module.exports = React.createClass({
   ],
   getInitialState: function() {
     return {
-      images: []
+      images: [],
+      aninmate: false
     }
   },
   onChange: function(event, images) {
     this.setState({
       images: images
     })
-    console.log(this.state.images)
+    //console.log(this.state.images)
   },
   componentWillMount: function() {
     console.log("fetching data via ImageStore")
@@ -35,12 +36,12 @@ module.exports = React.createClass({
     console.log(this.state.images)
     return this.state.images.slice(0,60).map(function(image) {
       //console.log(image.id)
-      return <ImagePreview key={image.id} {...image}/>
+      return <ImagePreview key={image.id} {...image} />
     })
   },
   render: function() {
-    console.log('Topic is rendering with ID '+this.props.params.id)
-    console.log('I have this many images: '+this.state.images.length)
+    //console.log('Topic is rendering with ID '+this.props.params.id)
+    //console.log('I have this many images: '+this.state.images.length)
     return <div className="topic">{this.renderImages()}</div>
     }
   })
