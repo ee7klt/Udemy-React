@@ -9,6 +9,7 @@ module.exports = React.createClass({
   },
   __onMouseEnter: function() {
     this.setState({hover: true});
+
       console.log("Entered "+ this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
       console.log(this.props)
 
@@ -29,6 +30,8 @@ module.exports = React.createClass({
       >
 
       {(this.props.animated && this.state.hover) ? this.video() : this.image()}
+      {(this.props.animated && !this.state.hover) ? this.icon() : null}
+      {this.state.hover ? this.inset(): null}
 
     </div>
 
@@ -44,7 +47,6 @@ module.exports = React.createClass({
     var link = this.props.webm
     return <div>
       <video
-
         autoPlay
         loop
         autoBuffer
@@ -55,7 +57,20 @@ module.exports = React.createClass({
 
       </video>
     </div>
+  },
+
+  icon: function() {
+    return <span className="glyphicon glyphicon-play"></span>
+  },
+
+  inset: function() {
+    return <div className="inset">
+      Views: {this.props.views}
+    <br/>
+      Upvotes: {this.props.ups}
+    </div>
   }
+
 
 
 
