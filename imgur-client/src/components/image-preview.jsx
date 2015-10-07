@@ -9,11 +9,14 @@ module.exports = React.createClass({
   },
   __onMouseEnter: function() {
     this.setState({hover: true});
-      console.log(this.state.hover);
+      console.log("Entered "+ this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
+      console.log(this.props)
+
   },
   __onMouseLeave: function() {
      this.setState({hover: false});
-      console.log(this.state.hover);
+  console.log("Exited "+ this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
+
   },
 
 
@@ -24,7 +27,7 @@ module.exports = React.createClass({
       onMouseEnter = {this.__onMouseEnter}
       onMouseLeave = {this.__onMouseLeave}
       >
-      
+
       {this.image()}
 
     </div>
@@ -32,9 +35,13 @@ module.exports = React.createClass({
 
   },
   image: function() {
-    var link = 'http://i.imgur.com/' + this.props.id + 'm.jpg'
-    return <img src = {link}/>
-
+    if ((this.state.hover) && (this.props.animated)) {
+      var link = 'http://i.imgur.com/' + this.props.id + '.webm'
+      return <video><source src={link} type="video/webm" /></video>
+    } else {
+      var link = 'http://i.imgur.com/' + this.props.id + 'm.jpg'
+      return <img src = {link}/>
+    }
 
   },
 
