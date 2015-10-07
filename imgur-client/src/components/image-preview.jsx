@@ -28,22 +28,34 @@ module.exports = React.createClass({
       onMouseLeave = {this.__onMouseLeave}
       >
 
-      {this.image()}
+      {(this.props.animated && this.state.hover) ? this.video() : this.image()}
 
     </div>
 
 
   },
   image: function() {
-    if ((this.state.hover) && (this.props.animated)) {
-      var link = 'http://i.imgur.com/' + this.props.id + '.webm'
-      return <video><source src={link} type="video/webm" /></video>
-    } else {
       var link = 'http://i.imgur.com/' + this.props.id + 'm.jpg'
       return <img src = {link}/>
-    }
-
   },
+
+  video: function() {
+
+    var link = this.props.webm
+    return <div>
+      <video
+
+        autoPlay
+        loop
+        autoBuffer
+        preload = 'auto'
+        webkit-playsinline
+        >
+        <source src={link} type='video/mp4'></source>
+
+      </video>
+    </div>
+  }
 
 
 
