@@ -1,5 +1,6 @@
 var React = require('react')
-
+var Router = require('react-router');
+var Link = Router.Link;
 
 module.exports = React.createClass({
   getInitialState: function() {
@@ -7,16 +8,20 @@ module.exports = React.createClass({
       hover: false
     }
   },
+
+  log: function () {
+    console.log( this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
+  },
   __onMouseEnter: function() {
     this.setState({hover: true});
 
-      console.log("Entered "+ this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
+      setTimeout( this.log,1000);
       console.log(this.props)
 
   },
   __onMouseLeave: function() {
      this.setState({hover: false});
-  console.log("Exited "+ this.props.title+". Hover = "+this.state.hover+". Animated = "+this.props.animated);
+  setTimeout(this.log,1000);
 
   },
 
@@ -28,11 +33,11 @@ module.exports = React.createClass({
       onMouseEnter = {this.__onMouseEnter}
       onMouseLeave = {this.__onMouseLeave}
       >
-
-      {(this.props.animated && this.state.hover) ? this.video() : this.image()}
-      {(this.props.animated && !this.state.hover) ? this.icon() : null}
-      {this.state.hover ? this.inset(): null}
-
+      <Link to = {"detail/" + this.props.id}>
+        {(this.props.animated && this.state.hover) ? this.video() : this.image()}
+        {(this.props.animated && !this.state.hover) ? this.icon() : null}
+        {this.state.hover ? this.inset(): null}
+      </Link>
     </div>
 
 

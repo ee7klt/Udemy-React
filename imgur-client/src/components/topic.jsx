@@ -24,11 +24,12 @@ module.exports = React.createClass({
   },
   componentWillMount: function() {
     console.log("fetching data via ImageStore")
-
+    //id of the topic
     Actions.getImages(this.props.params.id);
   },
   componentWillReceiveProps: function(nextProps) {
       console.log("fetching data via ImageStore")
+      //id of the topic
     Actions.getImages(nextProps.params.id);
   },
 
