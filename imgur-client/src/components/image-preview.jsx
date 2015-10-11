@@ -28,17 +28,17 @@ module.exports = React.createClass({
 
   render: function() {
       //console.log(this.props.animated)
-    return <div
+    return <Link to={"detail/" + this.props.id}
       className="image-preview"
       onMouseEnter = {this.__onMouseEnter}
       onMouseLeave = {this.__onMouseLeave}
       >
-      <Link to = {"detail/" + this.props.id}>
+
         {(this.props.animated && this.state.hover) ? this.video() : this.image()}
         {(this.props.animated && !this.state.hover) ? this.icon() : null}
         {this.state.hover ? this.inset(): null}
-      </Link>
-    </div>
+
+    </Link>
 
 
   },

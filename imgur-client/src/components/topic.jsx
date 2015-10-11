@@ -29,7 +29,7 @@ module.exports = React.createClass({
   },
   componentWillReceiveProps: function(nextProps) {
       console.log("fetching data via ImageStore")
-      //id of the topic
+      //id of th
     Actions.getImages(nextProps.params.id);
   },
 
