@@ -1,4 +1,11 @@
 
+
+// getImages returns all (non-album) images
+//  of a particular topic.
+//    id: id of the particular topic
+// called from topic.jsx
+
+
 var Api = require('../utils/api')
 var Reflux = require('reflux')
 var Actions = require('../actions')
