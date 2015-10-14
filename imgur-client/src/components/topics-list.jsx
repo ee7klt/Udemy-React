@@ -25,6 +25,7 @@ module.exports = React.createClass({
      this.setState({
        topics: topics
      })
+
   },
 
   componentWillMount: function () {

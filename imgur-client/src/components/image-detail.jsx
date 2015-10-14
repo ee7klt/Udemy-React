@@ -26,11 +26,12 @@ module.exports = React.createClass({
       image: image
     })
     console.log("image detail is calling the image from store")
-    console.log(this.image)
+    console.log(this.state.image)
   },
 
   componentWillMount: function() {
     Actions.getImage(this.props.params.id);
+    console.log("mounting getImage")
   },
 
   // componentWillReceiveProps not necessary here
@@ -44,11 +45,11 @@ module.exports = React.createClass({
   render: function() {
     return <div> this is image {this.props.params.id}
       <br />
-      {this.image}
+      {this.image()}
     </div>
   },
   image: function() {
-    var link = 'http://i.imgur.com/' + this.props.params.id + 'm.jpg'
+    var link = this.state.image.link
     return <img src = {link}/>
   }
 
