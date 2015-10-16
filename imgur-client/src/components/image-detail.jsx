@@ -7,12 +7,12 @@
 var React=require('react');
 var Reflux = require('reflux');
 var Actions = require('../actions')
-var DetailStore = require('../stores/detail-store')
+var ImageStore = require('../stores/image-store')
 
 module.exports = React.createClass({
 
   mixins: [
-    Reflux.listenTo(DetailStore, 'onChange')
+    Reflux.listenTo(ImageStore, 'onChange')
   ],
 
   getInitialState: function() {

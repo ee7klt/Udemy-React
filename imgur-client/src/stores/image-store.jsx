@@ -14,8 +14,8 @@ var _ = require('lodash')
 
 module.exports = Reflux.createStore ({
   listenables: [Actions],
-  getImages: function (id) {
-    return Api.get('topics/'+id)
+  getImages: function (TopicId) {
+    return Api.get('topics/'+TopicId)
           .then(function(json) {
             this.images = json.data;
             this.images =
@@ -24,6 +24,12 @@ module.exports = Reflux.createStore ({
               })
 
             this.triggerChange();
+          }.bind(this))
+  },
+  getImage: function(ImageId) {
+    return Api.get('gallery/image/'+ImageId)
+          .then(function(json) {
+            this.image = json.data;
           }.bind(this))
   },
   triggerChange: function() {
