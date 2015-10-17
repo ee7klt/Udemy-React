@@ -16,23 +16,27 @@ module.exports = React.createClass({
   ],
 
   getInitialState: function() {
+    console.log("getInitialState")
     return {
-      image: []
+      image: null
     }
   },
 
-  onChange: function(event, image) {
+  onChange: function() {
+    console.log("onChange")
     this.setState({
-      image: image
+      image: ImageStore.find(this.props.params.id)
     })
-    console.log("image detail is calling the image from store")
     console.log(this.state.image)
+
   },
 
   componentWillMount: function() {
-    Actions.getImage(this.props.params.id);
-    console.log("mounting getImage")
+    console.log("componentWillMount")
+    Actions.getImage()
   },
+
+
 
   // componentWillReceiveProps not necessary here
   // because when navigating to a different image
@@ -45,7 +49,7 @@ module.exports = React.createClass({
   render: function() {
     return <div> this is image {this.props.params.id}
       <br />
-      {this.image()}
+      {this.state.image}
     </div>
   },
   image: function() {

@@ -27,11 +27,24 @@ module.exports = Reflux.createStore ({
           }.bind(this))
   },
   getImage: function(ImageId) {
-    return Api.get('gallery/image/'+ImageId)
-          .then(function(json) {
-            this.image = json.data;
-          }.bind(this))
+    
+    this.triggerChange()
   },
+
+  find: function(ImageId) {
+    console.log("Finding image with id "+ImageId)
+    var image = _.findWhere(this.images,{id:ImageId})
+    console.log(image)
+    return image
+    if (image) {
+      return image
+    } else {
+      this.getImage(ImageId);
+      return null
+    }
+  },
+
+
   triggerChange: function() {
 
     this.trigger('change', this.images);

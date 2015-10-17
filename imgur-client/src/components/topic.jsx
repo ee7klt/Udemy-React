@@ -23,18 +23,18 @@ module.exports = React.createClass({
     //console.log(this.state.images)
   },
   componentWillMount: function() {
-    console.log("fetching data via ImageStore")
+    //console.log("fetching data via ImageStore")
     //id of the topic
     Actions.getImages(this.props.params.id);
   },
   componentWillReceiveProps: function(nextProps) {
-      console.log("fetching data via ImageStore")
+      //console.log("fetching data via ImageStore")
       //id of th
     Actions.getImages(nextProps.params.id);
   },
 
   renderImages: function() {
-    console.log(this.state.images)
+    //console.log(this.state.images)
     return this.state.images.slice(0,60).map(function(image) {
       //console.log(image.id)
       return <ImagePreview key={image.id} {...image} />

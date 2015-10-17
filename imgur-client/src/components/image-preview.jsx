@@ -15,13 +15,13 @@ module.exports = React.createClass({
   __onMouseEnter: function() {
     this.setState({hover: true});
 
-      setTimeout( this.log,1000);
-      console.log(this.props)
+    //  setTimeout( this.log,1000);
+      //console.log(this.props)
 
   },
   __onMouseLeave: function() {
      this.setState({hover: false});
-  setTimeout(this.log,1000);
+  //setTimeout(this.log,1000);
 
   },
 
