@@ -33,7 +33,7 @@ module.exports = React.createClass({
 
   componentWillMount: function() {
     console.log("componentWillMount")
-    Actions.getImage()
+    Actions.getImage(this.props.params.id)
   },
 
 
