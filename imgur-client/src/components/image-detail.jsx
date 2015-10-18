@@ -30,7 +30,7 @@ module.exports = React.createClass({
   },
 
   componentWillMount: function() {
-    Actions.getImage()
+    Actions.getImage(this.props.params.id)
   },
 
 
@@ -44,15 +44,15 @@ module.exports = React.createClass({
 
 
   render: function() {
-    
+
     return <div> this is image {this.props.params.id}
       <br />
       {this.state.images}
     </div>
   },
   image: function() {
-    var link = this.state.image.link
-    return <img src = {link}/>
+    var link = ImageStore.find(this.props.params.id)
+    return link
   }
 
 
