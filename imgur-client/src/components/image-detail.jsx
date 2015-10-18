@@ -18,22 +18,19 @@ module.exports = React.createClass({
   getInitialState: function() {
     console.log("getInitialState")
     return {
-      image: null
+      images: null
     }
   },
 
-  onChange: function() {
-    console.log("onChange")
+  onChange: function(event,images) {
     this.setState({
-      image: ImageStore.find(this.props.params.id)
+      images: images
     })
-    console.log(this.state.image)
 
   },
 
   componentWillMount: function() {
-    console.log("componentWillMount")
-    Actions.getImage(this.props.params.id)
+    Actions.getImage()
   },
 
 
@@ -47,9 +44,10 @@ module.exports = React.createClass({
 
 
   render: function() {
+    
     return <div> this is image {this.props.params.id}
       <br />
-      {this.state.image}
+      {this.state.images}
     </div>
   },
   image: function() {

@@ -29,37 +29,10 @@ module.exports = Reflux.createStore ({
 
 
   // images does not exist. fetch single image and put it in to an array called images
-  getImage: function(ImageId) {
-    console.log("running get image")
-    return Api.get('gallery/image/'+ImageId)
-            .then(function(json) {
-              if (this.images) {
-                this.images.push(json.data)
-                console.log(this.images)
-              }
-              else {
-                console.log("fetching single image")
-                this.images = [json.data]
-              }
-                this.triggerChange() //make it an array so that we can use findWhere
-            }.bind(this))
-
-
-  },
-
-  find: function(ImageId) {
-    console.log("Finding image with id "+ImageId)
-    var image = _.findWhere(this.images,{id:ImageId})
-    if (image) {
-      console.log("image found")
-      return image
-    } else {
-      console.log("image not found")
-      this.getImage(ImageId);
-      return null
-    }
-  },
-
+  getImage: function() {
+        
+            this.triggerChange()
+      },
 
   triggerChange: function() {
 
