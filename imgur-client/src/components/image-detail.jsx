@@ -8,25 +8,33 @@ var React=require('react');
 var Reflux = require('reflux');
 var Actions = require('../actions')
 var DetailStore = require('../stores/detail-store')
+var CommentsStore = require('../stores/comments-store')
+var CommentBox = require('./comment-box')
 
 module.exports = React.createClass({
 
   mixins: [
-    Reflux.listenTo(DetailStore, 'onChange')
+    Reflux.listenTo(DetailStore, 'onChange'),
+    Reflux.listenTo(CommentsStore, 'onChange')
   ],
 
   getInitialState: function() {
     return {
-      image: []
+      image: [],
+      comments: []
     }
   },
 
-  onChange: function(event, image) {
+  onChange: function() {
     this.setState({
-      image: image
+      image: DetailStore.image,
+      comments: CommentsStore.comments
     })
-    console.log("image detail is calling the image from store")
+    console.log("image detail is calling the getImage from store")
+    console.log("image is ")
     console.log(this.state.image)
+    console.log("comments is ")
+    console.log(this.state.comments[0])
   },
 
   componentWillMount: function() {
@@ -61,7 +69,19 @@ module.exports = React.createClass({
           <h5>{this.state.image.description}</h5>
         </div>
       </div>
+      <h3>Comments</h3>
+      {this.renderComments()}
     </div>
+  },
+
+  renderComments: function() {
+    if (!this.state.comments) {
+      return null
+    } else {
+      return <div>
+        <CommentBox comments = {this.state.comments[0]}/>
+        </div>
+    }
   },
 
   renderImage: function() {

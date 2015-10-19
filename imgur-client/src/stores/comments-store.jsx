@@ -23,7 +23,6 @@ module.exports = Reflux.createStore ({
   triggerChange: function() {
 
     this.trigger('change', this.comments);
-    console.log("this is detail store")
-    console.log(this.comments)
+
   }
 })

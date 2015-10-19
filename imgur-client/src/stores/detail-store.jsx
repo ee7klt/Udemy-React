@@ -24,7 +24,5 @@ module.exports = Reflux.createStore ({
   triggerChange: function() {
 
     this.trigger('change', this.image);
-    console.log("this is detail store")
-    console.log(this.image)
   }
 })
