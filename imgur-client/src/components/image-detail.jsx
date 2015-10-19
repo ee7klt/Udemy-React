@@ -43,21 +43,33 @@ module.exports = React.createClass({
 
 
   render: function() {
-    return <div>
+    return <div className="image-detail">
       {this.renderContent()}
     </div>
   },
 
   renderContent: function() {
     return <div>
-      <div>
-        {this.renderImage()}
+      <div className="panel panel-default">
+        <div className="panel-heading">
+          <h4>{this.state.image.title}</h4>
+        </div>
+        <div className="panel-body">
+              {this.renderImage()}
+        </div>
+        <div className="panel-footer">
+          <h5>{this.state.image.description}</h5>
+        </div>
       </div>
     </div>
   },
 
   renderImage: function() {
-    return <img src = {this.state.image.link} />
+    if (this.state.image.animated) {
+      return <video preload="auto" autoPlay loop webkit-playsinline>
+        <source src={this.state.image.mp4} type="video/mp4"></source>
+      </video>
+    } else return <img src = {this.state.image.link} />
   }
 
 
