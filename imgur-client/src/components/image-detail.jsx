@@ -43,14 +43,21 @@ module.exports = React.createClass({
 
 
   render: function() {
-    return <div> this is image {this.props.params.id}
-      <br />
-      {this.image()}
+    return <div>
+      {this.renderContent()}
     </div>
   },
-  image: function() {
-    var link = this.state.image.link
-    return <img src = {link}/>
+
+  renderContent: function() {
+    return <div>
+      <div>
+        {this.renderImage()}
+      </div>
+    </div>
+  },
+
+  renderImage: function() {
+    return <img src = {this.state.image.link} />
   }
 
 
