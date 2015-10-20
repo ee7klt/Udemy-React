@@ -34,7 +34,7 @@ module.exports = React.createClass({
     console.log("image is ")
     console.log(this.state.image)
     console.log("comments is ")
-    console.log(this.state.comments[0])
+    console.log(this.state.comments)
   },
 
   componentWillMount: function() {
@@ -79,7 +79,7 @@ module.exports = React.createClass({
       return null
     } else {
       return <div>
-        <CommentBox comments = {this.state.comments[0]}/>
+        <CommentBox comments = {this.state.comments}/>
         </div>
     }
   },
